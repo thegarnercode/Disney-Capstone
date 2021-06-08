@@ -5,3 +5,13 @@ import slick css for carousel
 
 in imgSlider.js, we destructured carousel with {...settings}
 so that the settings we created apply to all carousels
+
+Use styled components to style components in file
+
+overflow = content that overflows your view width
+you can hide it
+
+.slick-list {
+    overflow : visible // allows slide to show
+     piece of previous or next slide 
+}

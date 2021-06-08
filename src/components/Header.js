@@ -7,15 +7,15 @@ function Header() {
           <Logo src="/images/logo.svg" />
           <NavMenu>
             <a>
-              <img src="/images/home-icon.svg" />
+              <img src="/images/home-icon.svg" alt="" />
               <span>HOME</span>
             </a>
             <a>
-              <img src="/images/search-icon.svg" />
+              <img src="/images/search-icon.svg" alt="" />
               <span>SEARCH</span>
             </a>
             <a>
-              <img src="/images/watchlist-icon.svg" />
+              <img src="/images/watchlist-icon.svg" alt="" />
               <span>WATCHLIST</span>
             </a>
             <a>
@@ -50,6 +50,7 @@ background: darkorange;
 display:flex;
 align-items: center;
 padding: 0 36px;
+overflow-x: hidden;
 
 `
 
