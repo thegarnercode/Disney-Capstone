@@ -1,0 +1,7 @@
+NPM I react-slick --save ,and npm i slick-carousel react used to make movie carosel 
+
+import slider from react slick 
+import slick css for carousel
+
+in imgSlider.js, we destructured carousel with {...settings}
+so that the settings we created apply to all carousels
