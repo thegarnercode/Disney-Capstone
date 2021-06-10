@@ -17,24 +17,40 @@ function Details() {
             
             <PlayButton>
                 <img src="/images/play-icon-black.png" />
-                <span
-                
-            </PlayButton>
+                <span>PLAY</span>
+                </PlayButton>
 
             <TrailerButton>
-                
+            <img src="/images/play-icon-white.png" />
+            <span>Trailer</span>
             </TrailerButton>
 
             <AddButton>
-
+            <span>+</span>
             </AddButton>
 
             <GroupWatchButton>
-
+                <img src="/images/group-icon.png" />
             </GroupWatchButton>
 
 
             </Controls>
+
+            <SubTitle>
+            PG  1h 40min  Animation, Comedy
+            </SubTitle>
+
+            <Description>
+            What is it that makes you...YOU?
+            Pixar Animation Studios’ feature film SOUL introduces Joe Gardner (voice of Jamie Foxx) – a middle-school band teacher 
+            who gets the chance of a lifetime to play at the best jazz club in town. 
+            But one small misstep takes him from the streets of New York City 
+            to The Great Before – a fantastical place where new souls get their personalities, 
+            quirks and interests before they go to Earth. Determined to return to his life, Joe teams up with a precocious soul, 
+            22 (voice of Tina Fey), who has never understood the appeal of the human experience. 
+            As Joe desperately tries to show 22 what’s great about living, he may just discover the answers to some of life’s most important questions.
+            </Description>
+       
         </Container>
            
         
@@ -79,9 +95,7 @@ img{
 const Controls = styled.div`
   align-items: center;
   display: flex;
-  flex-flow: row nowrap;
-  margin: 24px 0px;
-  min-height: 56px;
+  
 
 
 `
@@ -98,9 +112,14 @@ font-size: 15px;
   letter-spacing: 1.8px;
   text-align: center;
   text-transform: uppercase;
-  background: rgb (249, 249, 249);
+  background: rgba(0,191,255 ,1 );
   border: none;
-  color: rgb(0, 0, 0);
+  color: rgb(249, 249, 249);
+
+  &:hover {
+      background: rgb(255,140,0);
+  }
+
   
   img {
     width: 32px;
@@ -111,14 +130,74 @@ font-size: 15px;
 `
 
 const TrailerButton = styled.button`
-background: rgba(0, 0, 0, 0.3);
-border: 1px solid rgb(249, 249, 249);
-color: rgb(249, 249, 249);
+font-size: 15px;
+  margin: 0px 22px 0px 0px;
+  padding: 0px 24px;
+  height: 56px;
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  letter-spacing: 1.8px;
+  text-align: center;
+  text-transform: uppercase;
+  background: rgba(0, 0, 0, 0.3);
+  border: none;
+  color: rgb(249, 249, 249);
+
+  &:hover {
+      background: rgb(255,140,0);
+  }
+
+  
+  img {
+    width: 32px;
+  }
+
 `
 const AddButton = styled.button`
+margin-right: 16px;
+font-size: 30px;
+height: 44px;
+width: 44px;
+display: flex;
+align-items: center;
+justify-content: center;
+border-radius: 50%;
+border: 2px solid white ;
+background-color: rgba(0,0,0,0.3);
+cursor: pointer;
+
+span {
+    font-size: 30px;
+    color: rgba(0,191,255 ,1 );
+    }
+
+
+
+
 `
-const  GroupWatchButton = styled.button`
+const  GroupWatchButton = styled(AddButton)`
+background: rgba(0,0,0,0.3);
+
+&:hover {
+    background: rgb(255,140,0);
 `
+const SubTitle = styled.div`
+color: rgb(249,249,249);
+font-size: 15px;
+min-height: 20px;
+margin-top: 26px;
+`
+
+const Description = styled.div`
+line-height: 1.4;
+font-size: 20px;
+margin-top: 16px;
+color: rgb(249,249,249);
+`
+
 
 
 
