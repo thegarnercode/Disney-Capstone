@@ -10,8 +10,18 @@ Use styled components to style components in file
 
 overflow = content that overflows your view width
 you can hide it
-
+ 
 .slick-list {
     overflow : visible // allows slide to show
      piece of previous or next slide 
+}
+
+Ex: &:hover {
+    concathenates the hover feature to the parent
+     which would be const WRAP so that you 
+     dont have to parent about putting
+     wrap: hover;
+
+     
+
 }
