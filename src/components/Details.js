@@ -1,17 +1,49 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
+import db from "../firebase";
+import { useHistory, useLocation } from "react-router-dom";
+import { useParams } from "react-router-dom"
 
 
 
+function Details () {
+    const { id } = useParams();
+    const [state, setState] = useState({});
+   
+   
+    const [movie, setMovie] = useState();
+    useEffect (() => {
+        if (id) {
+        db.collection("movies")
+        .doc(id)
+        .get()
+        .then((doc)=>{
+            if(doc.exists){
+                // save movie data
+                setMovie(doc.data());
+            } else {
+               
+            }
+        });
+        } else {
+            
+        } 
+        return () => {
+            setState({});
+        };
 
-function Details() {
+
+    }, []);
+   
     return (
-        <Container>
-            <Background>
-            <img src="https://media.vanityfair.com/photos/5fd8dd84b618bb8986a3bfbb/master/pass/soul-pixar-review.jpg" />
-            </Background>
-            <ImageTitle>
-            <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/846a9086-8a40-43e0-aa10-2fc7d6d73730/ddjwtu5-c84ed198-7019-4019-8df2-e5b4106196d3.png/v1/fill/w_300,h_200,strp/pixar_s_soul__2020__logo_png__by_mintmovi3_ddjwtu5-fullview.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NTQ0IiwicGF0aCI6IlwvZlwvODQ2YTkwODYtOGE0MC00M2UwLWFhMTAtMmZjN2Q2ZDczNzMwXC9kZGp3dHU1LWM4NGVkMTk4LTcwMTktNDAxOS04ZGYyLWU1YjQxMDYxOTZkMy5wbmciLCJ3aWR0aCI6Ijw9ODAwIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmltYWdlLm9wZXJhdGlvbnMiXX0.XCurADotLvIfj6-RH904KtR3UnLS88LbP984tSk2X7w" />
+            <Container>
+                {movie && (
+                    <>
+                <Background>
+                   <img src={movie.backgroundImg} alt="" />
+                </Background>
+                <ImageTitle>
+                   <img src={movie.titleImg} />
             </ImageTitle>
             <Controls>
             
@@ -37,24 +69,20 @@ function Details() {
             </Controls>
 
             <SubTitle>
-            PG  1h 40min  Animation, Comedy
+            {movie.subTitle}
             </SubTitle>
 
             <Description>
-            What is it that makes you...YOU?
-            Pixar Animation Studios’ feature film SOUL introduces Joe Gardner (voice of Jamie Foxx) – a middle-school band teacher 
-            who gets the chance of a lifetime to play at the best jazz club in town. 
-            But one small misstep takes him from the streets of New York City 
-            to The Great Before – a fantastical place where new souls get their personalities, 
-            quirks and interests before they go to Earth. Determined to return to his life, Joe teams up with a precocious soul, 
-            22 (voice of Tina Fey), who has never understood the appeal of the human experience. 
-            As Joe desperately tries to show 22 what’s great about living, he may just discover the answers to some of life’s most important questions.
+            {movie.description}
             </Description>
+            </>
+                )}
+        
        
         </Container>
            
         
-    )
+    );
 }
 
 
@@ -62,7 +90,7 @@ const Container = styled.div`
 min-height: calc(100vh- 70px);
 padding: 0 calc(3.5vw + 5px);
 position: relative;
-`
+`;
 
 const Background = styled.div`
 position: fixed;
@@ -81,21 +109,25 @@ img{
 `
 const ImageTitle = styled.div`
 height: 30vh;
+width: 35vw;
 min-height: 170px;
 min-width: 200px;
-width: 35vw;
+margin-top: 60px;
+margin-bottom: 20px;
 
 img{
     width: 100%
     height: 100%
-    object-fit: cover;
+    object-fit: contain;
 
 }
 `
 const Controls = styled.div`
   align-items: center;
   display: flex;
-  
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  heigt: 125px;
 
 
 `
@@ -196,6 +228,8 @@ line-height: 1.4;
 font-size: 20px;
 margin-top: 16px;
 color: rgb(249,249,249);
+max-width: 76 0px;
+margin-bottom: 20px
 `
 
 

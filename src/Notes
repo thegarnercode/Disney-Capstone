@@ -22,6 +22,21 @@ Ex: &:hover {
      dont have to parent about putting
      wrap: hover;
 
-     
-
 }
+
+using redux for state managment 
+
+when using redux always start with initial state 
+
+state is db for your app 
+[ movies, user] state saves this in application state, the we can access it whenever we need
+
+what is reducer
+
+redux is made of reducers, actions and state
+
+Action: something you want to do  log a user in , sign user in, delete user , delete movie etcetc
+
+Reducer: takes action change data
+
+State: will state change to all components
